@@ -23,10 +23,10 @@ RUN sed -i 's/const channelData = await dz.gw.get_page(channelName)/let channelD
 RUN yarn dist-server
 RUN mv /deemix-gui/dist/deemix-server /deemix-server
 
-
+## Stage 2
 FROM ghcr.io/hotio/lidarr:pr-plugins-2.5.2.4317
 
-LABEL maintainer="youegraillot"
+LABEL maintainer="itsnebulalol"
 
 ENV DEEMIX_SINGLE_USER=true
 ENV AUTOCONFIG=true
@@ -37,7 +37,6 @@ ENV PGID=1000
 # flac2mp3
 RUN apk add --no-cache ffmpeg && \
     rm -rf /var/lib/apt/lists/*
-COPY lidarr-flac2mp3/root/usr /usr
 
 # deemix
 COPY --from=deemix /deemix-server /deemix-server

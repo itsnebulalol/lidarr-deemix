@@ -1,10 +1,8 @@
-# [lidarr-on-steroids](https://github.com/youegraillot/lidarr-on-steroids/)
+# [lidarr-deemix](https://github.com/itsnebulalol/lidarr-demix)
 
-```I'm looking for maintainers, pm me if you're interested !```
-
-[![GitHub last commit](https://img.shields.io/github/last-commit/youegraillot/lidarr-on-steroids?style=for-the-badge&logo=github)](https://github.com/youegraillot/lidarr-on-steroids)
-[![Latest tag](https://img.shields.io/docker/v/youegraillot/lidarr-on-steroids?style=for-the-badge&logo=docker)](https://hub.docker.com/r/youegraillot/lidarr-on-steroids)
-[![Docker pulls](https://img.shields.io/docker/pulls/youegraillot/lidarr-on-steroids?style=for-the-badge&logo=docker)](https://hub.docker.com/r/youegraillot/lidarr-on-steroids)
+[![GitHub last commit](https://img.shields.io/github/last-commit/itsnebulalol/lidarr-demix?style=for-the-badge&logo=github)](https://github.com/itsnebulalol/lidarr-demix)
+[![Latest tag](https://img.shields.io/docker/v/itsnebulalol/lidarr-demix?style=for-the-badge&logo=docker)](https://hub.docker.com/r/itsnebulalol/lidarr-demix)
+[![Docker pulls](https://img.shields.io/docker/pulls/itsnebulalol/lidarr-demix?style=for-the-badge&logo=docker)](https://hub.docker.com/r/itsnebulalol/lidarr-demix)
 
 This repository bundles a modded version of Lidarr and Deemix into a docker image featuring :
   - Native Deemix integration as an indexer and downloader for Lidarr
@@ -14,7 +12,7 @@ This repository bundles a modded version of Lidarr and Deemix into a docker imag
 
 This allows an easy deployment, with the advantage of having a direct control over Deemix indexing and downloader capacities into Lidarr :
 
-!["Lidarr indexers"](https://github.com/youegraillot/lidarr-on-steroids/raw/main/.assets/lidarr-indexers.png "Lidarr indexers")
+!["Lidarr indexers"](https://github.com/itsnebulalol/lidarr-demix/raw/main/.assets/lidarr-indexers.png "Lidarr indexers")
 
 ## Usage
 
@@ -46,7 +44,7 @@ docker run \
   -v <path>:/downloads \
   -v <path>:/music \
   --restart unless-stopped \
- youegraillot/lidarr-on-steroids
+  itsnebulalol/lidarr-demix
 ```
 
 ### Docker Compose
@@ -55,7 +53,7 @@ docker run \
 version: "3"
 services:
   lidarr:
-    image: youegraillot/lidarr-on-steroids
+    image: itsnebulalol/lidarr-deemix
     restart: unless-stopped
     ports:
       - "8686:8686" # Lidarr web UI
@@ -83,22 +81,12 @@ In `AUTOCONFIG` mode (default), the only manual manipulation you'll only have to
 
 In case you don't want the automagical part (which is really the only value of this image), just set `AUTOCONFIG` environment variable to `false`.
 
-## Audio files conversion
-
-The image uses a modded version of lidarr-flac2mp3 allowing conversion from any format.
-
-To enable conversion on Lidarr import, create a new Connection to a Custom Script. You can also provide your own custom conversion script, see [lidarr-flac2mp3](https://github.com/youegraillot/lidarr-flac2mp3) for more information.
-
-In `AUTOCONFIG`, if `FLAC2CUSTOM_ARGS` is set and no other connection to flac2* is found, this step done for you :
-
-!["Lidarr custom script settings"](https://github.com/youegraillot/lidarr-on-steroids/raw/main/.assets/lidarr-custom-script.png "Lidarr custom script settings")
-
 ## Acknowledgment
 
 This project is just a compilation of various tools made possible by these projects :
 
+- [youegraillot](https://github.com/youegraillot/lidarr-on-steroids) for the original lidarr-on-steroids project
 - [Lidarr](https://github.com/Lidarr/Lidarr) and especially [ta264](https://github.com/ta264) for the plugin integration
-- [lidarr-flac2mp3](https://github.com/TheCaptain989/lidarr-flac2mp3) for the format conversion script
 - [Deemix](https://deemix.app/) for the downloader backend
 - [hotio](https://hotio.dev/) for the base docker image
 

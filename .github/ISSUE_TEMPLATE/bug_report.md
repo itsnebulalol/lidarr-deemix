@@ -32,7 +32,7 @@ If applicable, add screenshots to help explain your problem.
 version: "3"
 services:
   lidarr:
-    image: youegraillot/lidarr-on-steroids
+    image: itsnebulalol/lidarr-demix
     restart: unless-stopped
     ports:
       - "8686:8686" # Lidarr web UI

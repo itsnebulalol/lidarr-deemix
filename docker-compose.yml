@@ -1,12 +1,10 @@
 version: '3.4'
 
 services:
-  lidarr-onsteroids:
-    image: youegraillot/lidarr-on-steroids
+  lidarr-deemix:
+    image: itsnebulalol/lidarr-demix
     build:
       context: .
-    environment:
-      - FLAC2CUSTOM_ARGS=-a "-vn -c:a libopus -b:a 64k" -e .opus -r '\.mp3$$'
     ports:
       - "8686:8686" # Lidarr web UI
       - "6595:6595" # Deemix web UI
